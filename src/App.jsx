@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form } from "./components/Form";
-import { List } from "./components/List";
+import { Table } from "./components/Table";
+import { TotalHrs } from "./components/TotalHrs";
+import "./App.css";
 
 export const App = () => {
   // id gentrator function
@@ -21,11 +23,20 @@ export const App = () => {
   const onClickHander = (form) => {
     setTaskList([...taskList, { ...form, type: "entry", id: idgenrator() }]);
   };
-  console.log(taskList);
+
   return (
     <>
-      <Form onClickHander={onClickHander} />
-      <List taskList={taskList} />
+      <div className="wrapper">
+        <div className="container p-3">
+          <h1 className="text-center">
+            TimeWise: Your Personal Time Tracker & Saver
+          </h1>
+
+          <Form onClickHander={onClickHander} />
+          <Table taskList={taskList} />
+          <TotalHrs />
+        </div>
+      </div>
     </>
   );
 };

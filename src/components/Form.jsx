@@ -15,14 +15,14 @@ export const Form = ({ onClickHander }) => {
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
-      <div className="row row1  mt-5  border-sm p-sm-5  shadow">
-        <div className="col-sm-6  ">
+    <form onSubmit={onSubmitHandler} className="container-sm">
+      <div className="row row1 gap-2 mt-5  border-sm p-sm-5  shadow">
+        <div className="col-sm-4  ">
           <input
             id="task"
             type="text"
             className="form-control"
-            placeholder="Enter the activity Name"
+            placeholder="Enter the activity"
             aria-label="First name"
             name="task"
             onChange={onChageHandler}
@@ -41,9 +41,10 @@ export const Form = ({ onClickHander }) => {
             onChange={onChageHandler}
           />
         </div>
-        <div className="col-sm-3 d-grid">
+
+        <div className=" col-sm-3 d-grid">
           <button
-            className="btn btn-primary"
+            className="btn  btn-primary"
             onClick={() => {
               onClickHander(form);
             }}
