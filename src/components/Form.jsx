@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const Form = () => {
+export const Form = ({ onClickHander }) => {
+  // storing input value
+  const [form, setForm] = useState({});
+  // form submit handler
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(e);
-
-    console.log(task);
-    console.log(hour);
-    // const obj = {
-    //   task,
-    //   hour,
-    //   id: idgenrator(),
-    //   type: "good",
-    // };
+  };
+  // input change handler
+  const onChageHandler = (e) => {
+    const { value } = e.target;
+    const { name } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   return (
@@ -26,11 +25,12 @@ export const Form = () => {
             placeholder="Enter the activity Name"
             aria-label="First name"
             name="task"
+            onChange={onChageHandler}
           />
         </div>
         <div className="col-sm-3">
           <input
-            name="hours"
+            name="hour"
             id="hours"
             type="number"
             className="form-control"
@@ -38,10 +38,17 @@ export const Form = () => {
             aria-label="Last name"
             min="1"
             max="168"
+            onChange={onChageHandler}
           />
         </div>
         <div className="col-sm-3 d-grid">
-          <button className="btn btn-primary" type="submit">
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              onClickHander(form);
+            }}
+            type="submit"
+          >
             Add TASK
           </button>
         </div>

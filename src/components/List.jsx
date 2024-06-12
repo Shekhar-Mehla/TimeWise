@@ -1,25 +1,14 @@
 import React from "react";
-
-export const List = () => {
+import { GoodTaskTable } from "./GoodTaskTable";
+export const List = ({ taskList }) => {
   return (
-    <>
+    <div>
       <div className="row">
         {/* <!-- entry list  --> */}
         <div className="col-sm-6 mt-4">
           <h3 className="text-center">TASKS List</h3>
           <hr />
-          <table className="table table-striped border shadow table-hover">
-            <tbody id="entrylist">
-              <>
-                <td>
-                  <small>
-                    {" "}
-                    Task list is blank. Let's fill it up with some goals!
-                  </small>
-                </td>
-              </>
-            </tbody>
-          </table>
+          <GoodTaskTable taskList={taskList} />
         </div>
         {/* <!-- bad list  --> */}
         <div className="col-sm-6 mt-2">
@@ -41,6 +30,6 @@ export const List = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
