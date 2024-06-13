@@ -23,6 +23,22 @@ export const App = () => {
   const onClickHander = (form) => {
     setTaskList([...taskList, { ...form, type: "entry", id: idgenrator() }]);
   };
+  // handle on Switch button clicked
+  const OnSwitchhandler = (id, type) => {
+    const badList = taskList.map((item) => {
+      if (item.id === id) {
+        item.type = type;
+      }
+      return item;
+    });
+    setTaskList(badList);
+  };
+
+  // handle on delete button clicked
+
+  const onDeleteHandler = () => {
+    console.log("clicked");
+  };
 
   return (
     <>
@@ -33,7 +49,11 @@ export const App = () => {
           </h1>
 
           <Form onClickHander={onClickHander} />
-          <Table taskList={taskList} />
+          <Table
+            taskList={taskList}
+            OnSwitchhandler={OnSwitchhandler}
+            onDeleteHandler={onDeleteHandler}
+          />
           <TotalHrs />
         </div>
       </div>
