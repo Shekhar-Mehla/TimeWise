@@ -1,6 +1,10 @@
 import React from "react";
 
-export const GoodTaskTable = ({ taskList, OnSwitchhandler }) => {
+export const GoodTaskTable = ({
+  taskList,
+  OnSwitchhandler,
+  onDeleteHandler,
+}) => {
   const goodList = taskList.filter((item) => {
     return item.type === "entry";
   });
@@ -8,6 +12,14 @@ export const GoodTaskTable = ({ taskList, OnSwitchhandler }) => {
   return (
     <div>
       <table className="table table-striped border shadow table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Tasks</th>
+            <th scope="col">Time</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
         <tbody id="entrylist">
           {goodList.map((item, i) => {
             return (
@@ -19,7 +31,7 @@ export const GoodTaskTable = ({ taskList, OnSwitchhandler }) => {
                   <button
                     className="btn btn-danger deletebutton mx-2"
                     onClick={() => {
-                      onDeleteHandler();
+                      onDeleteHandler(item.id);
                     }}
                   >
                     <svg

@@ -10,6 +10,7 @@ export const Table = ({ taskList, OnSwitchhandler, onDeleteHandler }) => {
         <div className="col-sm-6 mt-4">
           <h3 className="text-center">TASKS List</h3>
           <hr />
+
           <GoodTaskTable
             taskList={taskList}
             OnSwitchhandler={OnSwitchhandler}

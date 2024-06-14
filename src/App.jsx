@@ -36,8 +36,11 @@ export const App = () => {
 
   // handle on delete button clicked
 
-  const onDeleteHandler = () => {
-    console.log("clicked");
+  const onDeleteHandler = (id) => {
+    const HandleDeleteList = taskList.filter((item) => {
+      return item.id != id;
+    });
+    setTaskList(HandleDeleteList);
   };
 
   return (
