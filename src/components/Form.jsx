@@ -25,6 +25,7 @@ export const Form = ({ onClickHander }) => {
             placeholder="Enter the activity"
             aria-label="First name"
             name="task"
+            required
             onChange={onChageHandler}
           />
         </div>
@@ -38,6 +39,7 @@ export const Form = ({ onClickHander }) => {
             aria-label="Last name"
             min="1"
             max="168"
+            required
             onChange={onChageHandler}
           />
         </div>

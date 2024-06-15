@@ -37,6 +37,8 @@ export const App = () => {
   // handle on delete button clicked
 
   const onDeleteHandler = (id) => {
+    // confirm("Are you sure about deleting this item ?");
+
     const HandleDeleteList = taskList.filter((item) => {
       return item.id != id;
     });
@@ -57,7 +59,7 @@ export const App = () => {
             OnSwitchhandler={OnSwitchhandler}
             onDeleteHandler={onDeleteHandler}
           />
-          <TotalHrs />
+          <TotalHrs taskList={taskList} />
         </div>
       </div>
     </>
