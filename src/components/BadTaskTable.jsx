@@ -1,10 +1,13 @@
 import React from "react";
+import { TotalBadHrs } from "./TotalBadHrs";
 
 export const BadTaskTable = ({
   taskList,
   OnSwitchhandler,
   onDeleteHandler,
 }) => {
+  // handling the bad hours
+
   const badList = taskList.filter((item) => {
     return item.type === "bad";
   });
@@ -68,15 +71,9 @@ export const BadTaskTable = ({
               </tr>
             );
           })}
-
-          {/* <td>
-            <small>
-              {" "}
-              Task list is blank. Let's fill it up with some goals!
-            </small>
-          </td> */}
         </tbody>
       </table>
+      <TotalBadHrs badList = {badList} />
     </div>
   );
 };

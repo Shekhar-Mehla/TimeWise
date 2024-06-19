@@ -2,7 +2,7 @@ import React from "react";
 
 export const TotalHrs = ({ taskList }) => {
   const Totalhrs = taskList.reduce((accumulator, item) => {
-    return (accumulator += item.hour);
+    return (accumulator += eval(item.hour));
   }, 0);
   return (
     <div>

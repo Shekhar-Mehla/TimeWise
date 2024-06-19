@@ -1,7 +1,7 @@
 import React from "react";
 import { GoodTaskTable } from "./GoodTaskTable";
 import { BadTaskTable } from "./BadTaskTable";
-import { TotalBadHrs } from "./TotalBadHrs";
+
 export const Table = ({ taskList, OnSwitchhandler, onDeleteHandler }) => {
   return (
     <div>
@@ -26,7 +26,7 @@ export const Table = ({ taskList, OnSwitchhandler, onDeleteHandler }) => {
             onDeleteHandler={onDeleteHandler}
             OnSwitchhandler={OnSwitchhandler}
           />
-          <TotalBadHrs />
+          
         </div>
       </div>
     </div>
