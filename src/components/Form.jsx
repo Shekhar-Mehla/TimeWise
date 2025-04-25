@@ -31,7 +31,7 @@ export const Form = ({ onClickHander }) => {
         </div>
         <div className="col-sm-3">
           <input
-            name="hour"
+            name="hr"
             id="hours"
             type="number"
             className="form-control"

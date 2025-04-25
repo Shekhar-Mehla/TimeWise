@@ -23,15 +23,15 @@ export const GoodTaskTable = ({
         <tbody id="entrylist">
           {goodList.map((item, i) => {
             return (
-              <tr key={item.id}>
+              <tr key={item._id}>
                 <td scope="row">{i + 1}.</td>
                 <td>{item.task} </td>
-                <td>{item.hour} hrs</td>
+                <td>{item.hr} hrs</td>
                 <td className="text-end">
                   <button
                     className="btn btn-danger deletebutton mx-2"
                     onClick={() => {
-                      onDeleteHandler(item.id);
+                      onDeleteHandler(item._id);
                     }}
                   >
                     <svg
@@ -47,8 +47,8 @@ export const GoodTaskTable = ({
                   </button>
                   <button
                     className="btn btn-success "
-                    onClick={(i) => {
-                      OnSwitchhandler(item.id, "bad");
+                    onClick={() => {
+                      OnSwitchhandler(item._id, "bad");
                     }}
                   >
                     <svg

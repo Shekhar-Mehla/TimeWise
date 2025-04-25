@@ -2,7 +2,7 @@ import React from "react";
 
 export const TotalBadHrs = ({ badList }) => {
   const TotalBadhrs = badList.reduce((accumulator, item) => {
-    return (accumulator += eval(item.hour));
+    return (accumulator += eval(item.hr));
   }, 0);
 
   return (

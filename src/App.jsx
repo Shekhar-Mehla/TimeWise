@@ -3,46 +3,54 @@ import { Form } from "./components/Form";
 import { Table } from "./components/Table";
 import { TotalHrs } from "./components/TotalHrs";
 import "./App.css";
+import { Api_post_mehtod } from "../src/Apihelper/axious.js";
+import { getUser } from "../src/Apihelper/axious.js";
+import { updateUser } from "../src/Apihelper/axious.js";
+import { deleteTask } from "../src/Apihelper/axious.js";
+import { useEffect } from "react";
 
 export const App = () => {
-  // id gentrator function
-  function idgenrator() {
-    const str =
-      "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890";
-    let genrated_id = "";
-    for (let i = 0; i < 6; i++) {
-      const index = Math.floor(Math.random() * str.length);
-      genrated_id += str[index];
-    }
-    return genrated_id;
-  }
+  const [taskList, setTaskList] = useState([]);
+
+  const fetchdata = async () => {
+    const data = await getUser();
+    return setTaskList(data.result);
+  };
+
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
   // storing the from object in the task list
 
-  const [taskList, setTaskList] = useState([]);
+  // call get method here
+
   // reciving form on button click
-  const onClickHander = (form) => {
-    setTaskList([...taskList, { ...form, type: "entry", id: idgenrator() }]);
+  const onClickHander = async (form) => {
+    // make api function call here for post
+    await Api_post_mehtod(form);
+    fetchdata();
   };
   // handle on Switch button clicked
-  const OnSwitchhandler = (id, type) => {
-    const badList = taskList.map((item) => {
-      if (item.id === id) {
-        item.type = type;
-      }
-      return item;
-    });
-    setTaskList(badList);
+  const OnSwitchhandler = (_id, type) => {
+    const getdata = async () => {
+      const obj = { _id, type };
+      return await updateUser(obj);
+    };
+    getdata();
+    fetchdata();
   };
 
   // handle on delete button clicked
 
-  const onDeleteHandler = (id) => {
+  const onDeleteHandler = (_id) => {
     // confirm("Are you sure about deleting this item ?");
-
-    const HandleDeleteList = taskList.filter((item) => {
-      return item.id != id;
-    });
-    setTaskList(HandleDeleteList);
+    const deleteData = async (_id) => {
+      const data = { _id };
+      return await deleteTask(data);
+    };
+    deleteData(_id);
+    fetchdata();
   };
 
   return (

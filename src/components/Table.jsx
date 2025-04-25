@@ -3,6 +3,7 @@ import { GoodTaskTable } from "./GoodTaskTable";
 import { BadTaskTable } from "./BadTaskTable";
 
 export const Table = ({ taskList, OnSwitchhandler, onDeleteHandler }) => {
+  console.log(taskList);
   return (
     <div>
       <div className="row">
@@ -26,7 +27,6 @@ export const Table = ({ taskList, OnSwitchhandler, onDeleteHandler }) => {
             onDeleteHandler={onDeleteHandler}
             OnSwitchhandler={OnSwitchhandler}
           />
-          
         </div>
       </div>
     </div>

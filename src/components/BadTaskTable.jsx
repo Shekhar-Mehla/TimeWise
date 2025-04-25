@@ -25,15 +25,15 @@ export const BadTaskTable = ({
         <tbody id="entrylist">
           {badList.map((item, i) => {
             return (
-              <tr key={item.id}>
+              <tr key={item._id}>
                 <td scope="row">{i + 1}.</td>
                 <td>{item.task} </td>
-                <td>{item.hour} hrs</td>
+                <td>{item.hr} hrs</td>
                 <td className="text-end">
                   <button
                     className="btn btn-warning "
                     onClick={() => {
-                      OnSwitchhandler(item.id, "entry");
+                      OnSwitchhandler(item._id, "entry");
                     }}
                   >
                     <svg
@@ -53,7 +53,7 @@ export const BadTaskTable = ({
                   <button
                     className="btn btn-danger deletebutton mx-2"
                     onClick={() => {
-                      onDeleteHandler(item.id);
+                      onDeleteHandler(item._id);
                     }}
                   >
                     <svg
@@ -73,7 +73,7 @@ export const BadTaskTable = ({
           })}
         </tbody>
       </table>
-      <TotalBadHrs badList = {badList} />
+      <TotalBadHrs badList={badList} />
     </div>
   );
 };
