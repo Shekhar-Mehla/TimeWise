@@ -1,6 +1,8 @@
 import axios from "axios";
-const Apiend = "http://localhost:8000/api/v1/tasks";
-
+const Apiend = import.meta.env.NODE_ENV
+  ? "/api/v1/tasks"
+  : "http://localhost:8000/api/v1/tasks";
+console.log(Apiend);
 export const Api_post_mehtod = async (data) => {
   const response = await axios.post(Apiend, data);
 };
